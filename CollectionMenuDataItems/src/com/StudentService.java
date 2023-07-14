@@ -1,9 +1,11 @@
 package com;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class StudentService {
@@ -16,8 +18,7 @@ public class StudentService {
 	public void addStudent() {
 		try {
 		System.out.println("Enter the id");
-		int id = sc.nextInt();			// number without decimal 
-			
+		int id = sc.nextInt();			// number without decimal 	
 		if(stdNames.containsKey(id)) {
 			System.out.println("Key must unique, so information didn't store");
 		}else {
@@ -35,6 +36,28 @@ public class StudentService {
 	public void numberOfStudent() {
 		System.out.println("Number of student details "+stdNames.size());
 	}
+	public void displayStudentInfo() {
+		System.out.println(stdNames);
+	}
+	public void displayStudentOneByOne() {
+	Set<?> ss = stdNames.entrySet();		// converting map to set key-value 
+	Iterator<?> ii = ss.iterator();		// created iterator reference 
+	while(ii.hasNext()) {				// if record is there it become true 
+		Object std  = ii.next();		// retrieve record 
+		System.out.println(std);		// display the record 
+	}
+	
+	}
+	
+	public void getOnlyKeys() {
+		Set<?> ss = stdNames.keySet();		// converting map to set only key
+		Iterator<?> ii = ss.iterator();		// created iterator reference 
+		while(ii.hasNext()) {				// if record is there it become true 
+			Object key  = ii.next();		// retrieve record 
+			System.out.println(stdNames.get(key));		// display the record 
+		}
+		
+		}
 	
 	public void close() {
 		sc.close();
