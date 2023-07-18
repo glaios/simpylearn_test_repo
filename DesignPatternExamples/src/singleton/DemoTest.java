@@ -2,12 +2,12 @@ package singleton;
 class Employee {
 	int id;
 	private static Employee emp = new Employee();// emp is static reference becuase we want to access inside 
-	// getInstance static method
+	// getInstance static method // in here same values
 	private Employee() {
 		System.out.println("object created...");
 	}
 	public static Employee getInstance() {
-		
+//		Employee emp = new Employee(); // in here different values
 		return emp;
 	}
 	public void display() {
